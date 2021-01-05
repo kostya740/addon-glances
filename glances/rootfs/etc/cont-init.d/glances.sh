@@ -35,3 +35,15 @@ if bashio::config.true 'influxdb.enabled'; then
         echo "protocol=${protocol}"
     } >> /etc/glances.conf
 fi
+
+# Export Glances data to Prometheus
+if bashio::config.true 'prometheus.enabled'; then
+    # Modify the configuration
+    {
+        echo "[prometheus]"
+        echo "host=localhost"
+        echo "port=$(bashio::config 'prometheus.port')"
+        echo "prefix=$(bashio::config 'prometheus.prefix')"
+        echo "labels=src:glances"
+    } >> /etc/glances.conf
+fi
