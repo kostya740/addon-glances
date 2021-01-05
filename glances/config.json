@@ -1,5 +1,5 @@
 {
-  "name": "Glances",
+  "name": "Glances with Prometheus",
   "version": "dev",
   "slug": "glances",
   "description": "A cross-platform system monitoring tool",
@@ -42,6 +42,9 @@
       "database": "glances",
       "prefix": "localhost",
       "interval": 60
+    },
+    "prometheus": {
+      "enabled": false
     }
   },
   "schema": {
@@ -61,6 +64,9 @@
       "prefix": "str",
       "interval": "int",
       "ssl": "bool?"
+    },
+    "prometheus": {
+      "enabled": "bool",
     },
     "leave_front_door_open": "bool?"
   },
