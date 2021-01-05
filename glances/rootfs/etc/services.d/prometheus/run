@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Glances
+# Runs Glances Prometheus Export
+# ==============================================================================
+declare -a options
+
+if bashio::config.false 'prometheus.enabled'; then
+    exec sleep 86400
+fi
+
+options+=(-C /etc/glances.conf)
+options+=(--export prometheus)
+
+# Run Glances
+exec glances "${options[@]}"
