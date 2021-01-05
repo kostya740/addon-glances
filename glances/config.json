@@ -44,7 +44,9 @@
       "interval": 60
     },
     "prometheus": {
-      "enabled": false
+      "enabled": false,
+      "port": 9091,
+      "prefix": "hass"
     }
   },
   "schema": {
@@ -66,7 +68,9 @@
       "ssl": "bool?"
     },
     "prometheus": {
-      "enabled": "bool"
+      "enabled": "bool",
+      "port": "port",
+      "prefix": "str"
     },
     "leave_front_door_open": "bool?"
   },
